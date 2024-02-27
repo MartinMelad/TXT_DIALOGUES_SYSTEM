@@ -64,9 +64,9 @@ public class Scenario
             }
             else if (line[0] == '3')
             {
-                if (cur is Question)
+                if (lst is Question)
                 {
-                    (cur as Question).AddChoice(line.Substring(2));
+                    (lst as Question).AddChoice(line.Substring(2));
                 }
             }
             else if (line[0] == '4')
