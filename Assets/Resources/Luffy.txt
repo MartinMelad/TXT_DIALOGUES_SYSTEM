@@ -8,18 +8,10 @@
 2 Give PEPO a BAZOOKA ?
 {
     3 Yes
-    0 it's okay
-    2 how are you?
-    {
-	3 im fine.
-	0 giv me bazooka pleaseeeeeeeeeeeee;
-    }
-    {
-	3 not fine;
-	0 giv me bazooka please;
-    }
+    1 it's okay
 }
 {
     3 No
+    1 yyyyyyyy
 }
 ;

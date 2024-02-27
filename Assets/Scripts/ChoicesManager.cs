@@ -32,12 +32,19 @@ public static class ChoicesManager
             VisualElement _choice = choiceCard.Instantiate();
             Button choiceBut = _choice.Q<Button>("Choice");
             choiceBut.text = question.ChoicesTitles[i];
+            _choice.userData = i;
             choiceBut.clicked += () =>
             {
+               
                 root.style.display = DisplayStyle.None;
-                if (question.NextElements.Count !=  0 )
+                foreach (var element in question.NextElements)
                 {
-                    question.NextElements[i].StartScenario();
+                    Debug.Log(element);
+                }
+                if (question.NextElements.Count != 0)
+                {
+                    //Debug.Log((int)_choice.userData);
+                    question.NextElements[(int)_choice.userData].StartScenario();
                 }
 
             };
