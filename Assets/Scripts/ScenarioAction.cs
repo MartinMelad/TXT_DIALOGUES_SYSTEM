@@ -1,15 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ScenarioAction : BaseScenario
+public class ScenarioAction : ScenarioElement
 {
-    UnityAction action;
+    MethodInfo action = null;
+    object[] parameters;
+    int parameter;
+    Type type;
 
-    public UnityAction SetAction { set { action = value; } }
-    protected override void StartScenario()
+
+    public int Parameter { get { return parameter; } set { parameter = value; } }
+
+    public ScenarioAction(MethodInfo action, Type type)
     {
-        if (action != null) action.Invoke();
+        this.action = action;
+        parameter = 0;
+        parameters = null;
+        this.type = type;
+
+    }
+    public ScenarioAction(MethodInfo action, int parameter, Type type)
+    {
+        this.action = action;
+        this.parameter = parameter;
+        parameters = new object[] { parameter };
+        this.type = type;
+    }
+
+    public override void StartScenario()
+    {
+        if (action != null)
+        {
+            action.Invoke(type, parameters);
+        }
+        Debug.Log("Method Invoked");
     }
 }

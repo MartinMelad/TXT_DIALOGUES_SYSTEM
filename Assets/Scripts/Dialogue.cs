@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialogue : BaseScenario
+public class Dialogue : ScenarioElement
 {
 
     Sprite avatar;
@@ -13,8 +13,18 @@ public class Dialogue : BaseScenario
     public string CharacterName { get { return characterName; } set { characterName = value; } }
     public string Message { get { return message; } set { message = value; } }
 
-    protected override void StartScenario()
+    public Dialogue(string message)
     {
-        
+        this.message = message;
+    }
+    public Dialogue(string message, string name)
+    {
+        this.message = message;
+        this.characterName = name;
+    }
+
+    public override void StartScenario()
+    {
+        Debug.Log("D: " + message);
     }
 }
