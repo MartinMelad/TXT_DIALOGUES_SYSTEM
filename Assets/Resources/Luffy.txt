@@ -5,13 +5,24 @@
 1 What the hell are you doing with it
 0 PEPO
 1 I want to bomb the college
-2 Give PEPO a BAZOOKA ?
 {
-    3 Yes
-    1 it's okay
+	1 44
+	1 444
+	1 4444
 }
 {
-    3 No
-    1 yyyyyyyy
+	1 55
+	1 555
+	1 5555
+}
+{
+	1 66
+	1 666
+	1 6666
+}
+{
+	1 77
+	1 777
+	1 7777
 }
 ;

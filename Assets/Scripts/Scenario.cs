@@ -53,6 +53,7 @@ public class Scenario
             else if (line[0] == '0')
             {
                 this.characterName = line.Substring(2);
+                continue;
             }
             else if (line[0] == '1') 
             {
@@ -68,6 +69,7 @@ public class Scenario
                 {
                     (lst as Question).AddChoice(line.Substring(2));
                 }
+                continue;
             }
             else if (line[0] == '4')
             {
