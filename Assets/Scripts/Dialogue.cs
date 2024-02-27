@@ -17,7 +17,7 @@ public class Dialogue : ScenarioElement
     {
         this.message = message;
     }
-    public Dialogue(string message, string name)
+    public Dialogue(string name, string message)
     {
         this.message = message;
         this.characterName = name;
@@ -25,6 +25,6 @@ public class Dialogue : ScenarioElement
 
     public override void StartScenario()
     {
-        Debug.Log("D: " + message);
+        DialogueManager.Instance.ShowDialogue(this);
     }
 }

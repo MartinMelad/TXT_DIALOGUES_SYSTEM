@@ -56,7 +56,7 @@ public class Scenario
             }
             else if (line[0] == '1') 
             {
-                cur = new Dialogue(line.Substring(2));
+                cur = new Dialogue(characterName,line.Substring(2));
             }
             else if (line[0] == '2')
             {

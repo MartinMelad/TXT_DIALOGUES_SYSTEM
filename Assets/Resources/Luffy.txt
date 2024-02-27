@@ -1,0 +1,25 @@
+0 PEPO
+1 Hi, King
+1 I want a BAZOOKA
+0 King
+1 What the hell are you doing with it
+0 PEPO
+1 I want to bomb the college
+2 Give PEPO a BAZOOKA ?
+{
+    3 Yes
+    0 it's okay
+    2 how are you?
+    {
+	3 im fine.
+	0 giv me bazooka pleaseeeeeeeeeeeee;
+    }
+    {
+	3 not fine;
+	0 giv me bazooka please;
+    }
+}
+{
+    3 No
+}
+;

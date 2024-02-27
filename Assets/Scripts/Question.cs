@@ -21,7 +21,6 @@ public class Question : ScenarioElement
     }
     public override void StartScenario()
     {
-        Debug.Log(title);
-        Debug.Log(choicesTitles);
+        ChoicesManager.ShowChoices(this);
     }
 }

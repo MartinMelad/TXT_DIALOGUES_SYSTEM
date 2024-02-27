@@ -12,7 +12,6 @@ public abstract class ScenarioElement
     {
         nextElements.Add(element);
     }
-
     public abstract void StartScenario();
 
 }
