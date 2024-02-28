@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ScenarioAction : ScenarioElement
 {
@@ -38,5 +37,7 @@ public class ScenarioAction : ScenarioElement
             action.Invoke(type, parameters);
         }
         Debug.Log("Method Invoked");
+        int index = UnityEngine.Random.Range(0, nextElements.Count);
+        nextElements[index].StartScenario();
     }
 }

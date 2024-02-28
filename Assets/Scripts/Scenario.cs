@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -14,7 +11,13 @@ using UnityEngine;
  * 1 Character Dialogue
  * 2 Question
  * 3 Choice Title
- * 4 Scenario Action
+ * # Set Scenario Element Code Name
+ * 4 Scenario Action 
+ * /*\ Special Functions:
+ * 4 Connect (string code1, string code2)
+ * 4 Clear (string code)
+ * ; End Scenario
+ * // comment 
  */
 
 public class Scenario
@@ -24,6 +27,12 @@ public class Scenario
     ScenarioElement lst = null;
 
     Stack<ScenarioElement> stack = new Stack<ScenarioElement>();
+    Dictionary<string, ScenarioElement> codeToScenarioElement = new Dictionary<string, ScenarioElement>();
+    List<Tuple<string, string>> toConnectList = 
+        new List<Tuple<string, string>>();
+
+    // To Disconnect the Scenario after }
+    bool isAfterClose = false;
 
     string characterName;
     Type classType;
@@ -42,11 +51,13 @@ public class Scenario
 
             if (line[0] == '{')
             {
+                isAfterClose = false;
                 stack.Push(lst);
                 continue;
             }
             else if (line[0] == '}') 
             {
+                isAfterClose = true;
                 lst = stack.Pop();
                 continue;
             }
@@ -76,26 +87,64 @@ public class Scenario
                 string[] strings = line.Split(' ');
                 string name = strings[1];
 
-                MethodInfo theAction = classType.GetMethod(name);
-
-                if (strings.Length > 2)
+                if (name == "Connect" && strings.Length > 3)
                 {
-                    cur = new ScenarioAction(theAction, int.Parse(strings[2]), classType);
+                    toConnectList.Add(new Tuple<string, string>(strings[2], strings[3]));
+                    cur = new ScenarioAction(null, null);
+                }
+                else if (name == "Clear" && strings.Length > 2)
+                {
+                    codeToScenarioElement[strings[2]].NextElements.Clear();
+                    cur = new ScenarioAction(null, null);
                 }
                 else
                 {
-                    cur = new ScenarioAction(theAction, classType);
+                    MethodInfo theAction = classType.GetMethod(name);
+
+                    if (strings.Length > 2)
+                    {
+                        cur = new ScenarioAction(theAction, int.Parse(strings[2]), classType);
+                    }
+                    else
+                    {
+                        cur = new ScenarioAction(theAction, classType);
+                    }
                 }
 
-            }
 
-            if (lst == null) head = cur;
-            else if (lst != cur)
-            {
-                lst.AddScenarioElement(cur);
             }
-            lst = cur;
+            else if (line[0] == '#')
+            {
+                lst.CodeName = line.Substring(2);
+                codeToScenarioElement.Add(lst.CodeName, lst);
+                continue;
+            }
+            else { continue; }
+
+            if (lst == null) head = lst = cur;
+            if (lst != cur)
+            {
+                if (isAfterClose ==  false)
+                {
+                    lst.AddScenarioElement(cur);
+                }
+                else { isAfterClose = false; }
+                lst = cur;
+            }
         }
+
+        ConnectTheToConnectList();
+    }
+
+    private void ConnectTheToConnectList()
+    {
+        foreach (var T in toConnectList)
+        {
+            ScenarioElement e1 = codeToScenarioElement[T.Item1];
+            ScenarioElement e2 = codeToScenarioElement[T.Item2];
+            if (e1.NextElements.Contains(e2) == false) e1.AddScenarioElement(e2);
+        }
+        toConnectList.Clear();
     }
 
     private void Go(ScenarioElement p)

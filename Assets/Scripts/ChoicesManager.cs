@@ -43,7 +43,7 @@ public static class ChoicesManager
                 }
                 if (question.NextElements.Count != 0)
                 {
-                    //Debug.Log((int)_choice.userData);
+                    Debug.Log((int)_choice.userData);
                     question.NextElements[(int)_choice.userData].StartScenario();
                 }
 

@@ -1,28 +1,38 @@
-0 PEPO
-1 Hi, King
-1 I want a BAZOOKA
+0 Pierre
+1 Hello my king, I have a special request.
+1 It is for something very important.
 0 King
-1 What the hell are you doing with it
-0 PEPO
-1 I want to bomb the college
+1 What do you need?
+0 Pierre
+1 BAZOOKA
+1 To blow up the damn college.
+2 Grant Pierre the BAZOOKA?
 {
-	1 44
-	1 444
-	1 4444
+	3 Yes
+	1 Yahooooo, Thanks King.
 }
 {
-	1 55
-	1 555
-	1 5555
-}
-{
-	1 66
-	1 666
-	1 6666
-}
-{
-	1 77
-	1 777
-	1 7777
+	3 No
+	1 Whyyyyy ?????
+	0 King
+	1 Bombs are better HAHAHA.
+	2 Give Pierre ..... Bombs
+	{
+		3 50 Bombs
+		4 Connect c1 reunit
+		# c1
+	}
+	{
+		3 550 Bombs
+		4 Connect c2 reunit
+		# c2
+	}
+	{
+		3 5550 Bombs
+		4 Connect c3 reunit
+		# c3
+	}
+	1 Don't forget to stay alive.
+	# reunit
 }
 ;

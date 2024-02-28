@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     protected Sprite kingAvatar;
 
     [SerializeField]
-    private string name;
+    private new string name;
 
     List<Scenario> scenarios = new List<Scenario>();
     ScenarioElement curScenatio;
@@ -31,6 +31,9 @@ public class Character : MonoBehaviour
         for (int i = 0; i < scenariosText.Count; i++) 
         {
             string line = scenariosText[i].Trim();
+
+            if (line.Length == 0 || line[0] == '/' && line[1]=='/') continue;
+
             if (line[0] == ';')
             {
                 Scenario scenario = new Scenario(liens, this.GetType());
