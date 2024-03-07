@@ -18,7 +18,6 @@ public class Character : MonoBehaviour
     private new string name;
 
     List<Scenario> scenarios = new List<Scenario>();
-    ScenarioElement curScenatio;
     static int scenarioIndex = 0;
     TextAsset characterScenarios;
     
@@ -48,7 +47,12 @@ public class Character : MonoBehaviour
         }
         if (scenarioIndex < scenarios.Count)
         {
-            scenarios[scenarioIndex].Head.StartScenario();
+            if (scenarios[scenarioIndex].Head.Condition == "" ||
+                Scenario.doneScenarios.Contains(scenarios[scenarioIndex].Head.Condition))
+            {
+                scenarios[scenarioIndex].Head.StartScenario();
+                scenarioIndex++;
+            }
         }
     }
 

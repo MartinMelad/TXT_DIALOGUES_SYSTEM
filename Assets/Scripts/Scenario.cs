@@ -16,12 +16,17 @@ using UnityEngine;
  * /*\ Special Functions:
  * 4 Connect (string code1, string code2)
  * 4 Clear (string code)
+ * 5 Depending scenario code
  * ; End Scenario
  * // comment 
  */
 
 public class Scenario
 {
+    // store all the done scenarios of the whole game.
+    // useful to make the scenarios depend on another ones.
+    public static List<string> doneScenarios = new List<string>();
+
     ScenarioElement head = null;
     ScenarioElement cur = null;
     ScenarioElement lst = null;
@@ -110,8 +115,12 @@ public class Scenario
                         cur = new ScenarioAction(theAction, classType);
                     }
                 }
-
-
+            }
+            else if (line[0] == '5')
+            {
+                string conditionCode = line.Substring(2);
+                cur = new ScenarioAction(null, null);
+                cur.Condition = conditionCode;
             }
             else if (line[0] == '#')
             {

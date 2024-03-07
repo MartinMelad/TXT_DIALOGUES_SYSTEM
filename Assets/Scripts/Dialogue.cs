@@ -25,6 +25,8 @@ public class Dialogue : ScenarioElement
 
     public override void StartScenario()
     {
+        AddToDoneScenarios();
+
         DialogueManager.Instance.ShowDialogue(this);
     }
 }

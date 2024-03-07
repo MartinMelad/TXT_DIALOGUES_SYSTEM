@@ -367,7 +367,6 @@ GameObject:
   - component: {fileID: 2089942673}
   - component: {fileID: 2089942674}
   - component: {fileID: 2089942675}
-  - component: {fileID: 2089942676}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -418,21 +417,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0b00ade0228dd44bb29be617e0595b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2089942676
-MonoBehaviour:
+--- !u!1001 &3772253940032350141
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089942672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57c23744adc2834c8aef48ec19af7c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
-  kingAvatar: {fileID: 0}
-  name: Luffy
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 457894296480100401, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_Name
+      value: Luffy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546500914510605807, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b36c78806ff28a94e84d987a6140b5e2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -440,3 +481,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 698613991}
   - {fileID: 1708140264}
+  - {fileID: 3772253940032350141}

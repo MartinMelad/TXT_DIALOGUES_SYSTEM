@@ -32,12 +32,17 @@ public class ScenarioAction : ScenarioElement
 
     public override void StartScenario()
     {
+        AddToDoneScenarios();
+
         if (action != null)
         {
             action.Invoke(type, parameters);
+            Debug.Log("Method Invoked");
         }
-        Debug.Log("Method Invoked");
-        int index = UnityEngine.Random.Range(0, nextElements.Count);
-        nextElements[index].StartScenario();
+        if (nextElements.Count > 0)
+        {
+            int index = UnityEngine.Random.Range(0, nextElements.Count);
+            nextElements[index].StartScenario();
+        }
     }
 }

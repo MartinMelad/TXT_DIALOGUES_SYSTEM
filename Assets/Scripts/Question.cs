@@ -21,6 +21,8 @@ public class Question : ScenarioElement
     }
     public override void StartScenario()
     {
+        AddToDoneScenarios();
+
         ChoicesManager.ShowChoices(this);
     }
 }
